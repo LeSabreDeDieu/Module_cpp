@@ -5,41 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/03/20 12:38:54 by sgabsi           ###   ########.fr        #
+#    Created: 2023/11/21 16:28:59 by sgabsi            #+#    #+#              #
+#    Updated: 2024/03/20 13:05:41 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 #################
 ##  VARIABLES  ##
 #################
 
 # Directories
-SRCDIR				=	./srcs
-OBJDIR				=	objs
+SRCDIR		=	./srcs
+INCDIR		=	./includes
+OBJDIR		=	objs
 
 # Sources
-SRCS				=	megaphone.cpp
+
+SRCS		=	$(SRCDIR)/contact.cpp $(SRCDIR)/phoneBook.cpp $(SRCDIR)/main.cpp
 
 # Objects
-OBJ					=	$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJS 		= $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	megaphone
+NAME		=	a.out
 
 # Compiler
-CPP					=	c++
-CFLAGS				=	-Wall -Werror -Wextra -std=c++98
+CC			=	c++
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+OPTIONS		=	-I $(INCDIR)
 
-#Progress bar
+# Progress bar
 COUNT		=	1
-TOTAL_FILES	=	$(shell find . -type f -name "*.c" | wc -l)
+TOTAL_FILES	=	$(shell find ./srcs -type f -name "*.cpp" | wc -l)
 
 # Colors
+RED			=	\033[0;31m
 GREEN		=	\033[0;32m
 YELLOW		=	\033[0;33m
-RED			=	\033[0;31m
 NC			=	\033[0m
 KL			=	\033[K
 
@@ -50,17 +52,17 @@ KL			=	\033[K
 all: pre_comp $(NAME)
 
 pre_comp :
-	@echo "$(YELLOW)********* Début de la compilation de $(NAME) *********$(NC)"
+	@echo "$(YELLOW)********* Début de la compilation du programme $(NAME) *********$(NC)"
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJS)
+	@$(CC) $(OBJS) $(CFLAGS) $(OPTIONS) $(LFLAGS) -o $@
 	@echo -e "\r$(GREEN)********* Compilation terminée avec succès! *********$(NC)$(KL)"
-	@echo "$(GREEN)********* $(NAME) a été créée. *********$(NC)"
+	@echo "$(GREEN)********* L'executable $(NAME) a été créée. *********$(NC)"
 
-$(OBJDIR)/%.o: $(SRCS)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CFLAGS) $(OPTIONS) -o $@ -c $<
-	@printf "\rCompiling files: [%-50s] %3d%% (%d/%d) %s$(KL)" \
+	@$(CC) $(CFLAGS) $(OPTIONS) -c $< -o $@
+	@printf "$(NC)\rCompiling files: [%-50s] %3d%% (%d/%d) %s$(KL)" \
 		"$(shell printf '=%.0s' $$(seq 1 $$(($(COUNT) * 50 / $(TOTAL_FILES)))))" \
 		$$(($(COUNT) * 100 / $(TOTAL_FILES))) \
 		$(COUNT) \
@@ -69,12 +71,13 @@ $(OBJDIR)/%.o: $(SRCS)
 	$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
 
 clean:
-	@/bin/rm -rf $(OBJDIR)
+	@rm -rf $(OBJDIR)
 	@echo "$(YELLOW)********* Suppression des fichiers objets *********$(NC)"
 
 fclean: clean
-	@/bin/rm -f $(NAME)
-	@/bin/rm -f $(NAMESO) a.out
-	@echo "$(RED)********* Suppression de $(NAME) *********$(NC)"
-	
+	@rm -f $(NAME)
+	@echo "$(RED)********* Suppression de l'executable $(NAME) *********$(NC)"
+
 re: fclean all
+
+.PHONY: all clean fclean re
