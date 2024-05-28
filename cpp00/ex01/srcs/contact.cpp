@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 11:53:56 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/03/20 14:04:05 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/28 17:20:54 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ contact::contact(std::string firstName, std::string lastName, std::string nickna
 	_darkSecret 	=	darkSecret;
 }
 
-std::string const contact::getFirstName() { return _firstName; }
-std::string const contact::getLastName() { return _lastName; }
-std::string const contact::getNickname() { return _nickname; }
-std::string const contact::getPhoneNumber() { return _phoneNumber; }
-std::string const contact::getDarkSecret() { return _darkSecret; }
+void contact::printContact(){
+	std::cout << "First Name : " << _firstName << std::endl;
+	std::cout << "Last Name : " << _lastName << std::endl;
+	std::cout << "Nickname : " << _nickname << std::endl;
+	std::cout << "Phone Number : " << _phoneNumber << std::endl;
+	std::cout << "Dark Secret : " << _darkSecret << std::endl;
+}

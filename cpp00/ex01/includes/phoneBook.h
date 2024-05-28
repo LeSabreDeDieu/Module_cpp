@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:04:20 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/03/20 14:00:03 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/28 17:21:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 
 class phoneBook
 {
-private:
-	contact *_contacts;
 public:
+	contact *_contacts;
 	phoneBook();
 
 	contact *getContacts() const;
