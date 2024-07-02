@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 23:14:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 08:30:37 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:23:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,45 +30,34 @@ void PhoneBook::addContact(Contact contact) {
 const Contact *PhoneBook::getRepertoire() const { return _repertoire; }
 bool PhoneBook::isEmpty() const { return _isEmpty; }
 
+string readapt(string str){
+	string readapt;
+	
+	readapt += "|";
+	if (str.length() >= 10)
+		readapt += str.substr(0,9).append(".");
+	else
+	{
+		size_t size = (size_t)10 - str.length();
+		for (size_t i = 0; i < size; i++)
+			readapt += " ";
+		readapt += str;
+	}
+	
+	return readapt;
+}
+
 ostream& operator<< (ostream &os, PhoneBook const &repertoire) {
 	os << "----------------------------------------" << endl;
 	os << "|INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << endl;
 	if (!repertoire.isEmpty()) {
 		for (int i = 0; i < 8; i++)
 		{
-			if (repertoire.getRepertoire()[i].getFirstName() != "inconnu"){
+			if (repertoire.getRepertoire()[i].getFirstName() != "inconnu") {
 				os << "|    " << i ;
-				
-				if (repertoire.getRepertoire()[i].getFirstName().length() >= 10)
-					os << "|" << repertoire.getRepertoire()[i].getFirstName().substr(0,9).append(".");
-				else {
-					os << "|" ;
-					size_t size = (size_t)10 - repertoire.getRepertoire()[i].getFirstName().length();
-					for (size_t i = 0; i < size; i++)
-						os << " ";
-					os << repertoire.getRepertoire()[i].getFirstName();
-				}
-				
-				if (repertoire.getRepertoire()[i].getLastName().length() >= 10)
-					os << "|" << repertoire.getRepertoire()[i].getLastName().substr(0,9).append(".");
-				else {
-					os << "|" ;
-					size_t size = (size_t)10 - repertoire.getRepertoire()[i].getLastName().length();
-					for (size_t i = 0; i < size; i++)
-						os << " ";
-					os << repertoire.getRepertoire()[i].getLastName();
-				}
-
-				if (repertoire.getRepertoire()[i].getNickName().length() >= 10)
-					os << "|" << repertoire.getRepertoire()[i].getNickName().substr(0,9).append(".");
-				else {
-					os << "|" ;
-					size_t size = (size_t)10 - repertoire.getRepertoire()[i].getNickName().length();
-					for (size_t i = 0; i < size; i++)
-						os << " ";
-					os << repertoire.getRepertoire()[i].getNickName();
-					
-				}
+				os << readapt(repertoire.getRepertoire()[i].getFirstName());
+				os << readapt(repertoire.getRepertoire()[i].getLastName());
+				os << readapt(repertoire.getRepertoire()[i].getNickName());
 				os << "|" << endl;
 			}
 		}
