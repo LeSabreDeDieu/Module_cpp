@@ -36,3 +36,5 @@
 
 # compiled files
 a.out
+
+./Makefile
