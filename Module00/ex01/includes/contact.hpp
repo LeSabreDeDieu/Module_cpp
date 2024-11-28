@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 22:01:25 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/21 01:20:02 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/07/04 16:42:39 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ public:
 	string const getNickName() const;
 	string const getPhoneNumber() const;
 	string const getDarkestSecret() const;
-
 };
 
 ostream& operator<< (ostream &os, Contact const &contact);

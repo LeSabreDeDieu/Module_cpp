@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 21:57:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 16:37:06 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/07/04 12:37:10 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/07/05 12:43:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef __FIXED_HPP__
+#define __FIXED_HPP__
 
-#include "contact.hpp"
+#include <iostream>
 
-class PhoneBook
+class Fixed
 {
 private:
-	Contact _repertoire[8];
-	bool _isEmpty;
+	int	_entier;
+	static const int _RAW_BITS = 8;
 public:
-	PhoneBook();
-	const Contact *getRepertoire() const;
-	bool isEmpty() const;
-	void addContact(Contact contact);
+	Fixed();
+	Fixed( const Fixed& );
+	~Fixed();
+
+	Fixed& operator=( const Fixed& nbr );
+
+	int getRawBits ( void ) const ;
+	void setRawBits ( int const raw );
 };
 
-ostream& operator<< (ostream &os, PhoneBook const &repertoire);
 #endif

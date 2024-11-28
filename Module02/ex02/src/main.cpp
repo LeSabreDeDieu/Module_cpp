@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 21:57:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 16:37:06 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/07/04 12:52:19 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/11/28 10:33:49 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Fixed.hpp"
+#include <iostream>
 
-#include "contact.hpp"
+int main( void ) {
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-class PhoneBook
-{
-private:
-	Contact _repertoire[8];
-	bool _isEmpty;
-public:
-	PhoneBook();
-	const Contact *getRepertoire() const;
-	bool isEmpty() const;
-	void addContact(Contact contact);
-};
-
-ostream& operator<< (ostream &os, PhoneBook const &repertoire);
-#endif
+	std::cout << b << std::endl;
+	
+	std::cout << Fixed::max( a, b ) << std::endl;
+	
+	return 0;
+}

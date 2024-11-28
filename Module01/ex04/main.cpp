@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:51:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 16:38:02 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/08/21 12:33:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
 		return 1;
     }
 
-	string tmp = string(argv[1]) + ".tmp";
+	string tmp = string(argv[1]) + ".replace";
 	std::ofstream outFile(tmp.c_str());
 	string line = "";
 	while (std::getline(inFile, line)) {
@@ -61,6 +61,5 @@ int main(int argc, char const *argv[])
 	inFile.close();
 	outFile.close();
 	
-	std::rename((string(argv[1]) + ".tmp").c_str(), argv[1]);
 	return 0;
 }

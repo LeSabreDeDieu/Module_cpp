@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/07/04 12:58:09 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/11/28 11:17:18 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,22 @@
 #################
 
 # Directories
-SRCDIR				=	.
+INCDIR				=	./include
+SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCS				=	main.cpp \
-						Fixed.cpp
+SRCS				=	$(wildcard $(SRCDIR)/*.cpp)
 
 # Objects
-OBJ					=	$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
 NAME				=	fixed
 
 # Compiler
 CPP					=	c++
-CFLAGS				=	-Wall -Werror -Wextra -std=c++98
+CFLAGS				=	-Wall -Werror -Wextra -std=c++98 -I $(INCDIR)
 
 #Progress bar
 COUNT		=	1

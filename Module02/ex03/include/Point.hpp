@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 21:57:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 16:37:06 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/11/28 10:49:50 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/11/28 11:22:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef __POINT_HPP__
+#define __POINT_HPP__
 
-#include "contact.hpp"
+#include <iostream>
+#include "Fixed.hpp"
 
-class PhoneBook
+class Point
 {
 private:
-	Contact _repertoire[8];
-	bool _isEmpty;
+	Fixed _x;
+	Fixed _y;
 public:
-	PhoneBook();
-	const Contact *getRepertoire() const;
-	bool isEmpty() const;
-	void addContact(Contact contact);
+	Point();
+	Point( const float x, const float y );
+	Point( const Point& );
+	~Point();
+
+	Point& operator=( const Point& );
 };
 
-ostream& operator<< (ostream &os, PhoneBook const &repertoire);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+
 #endif
