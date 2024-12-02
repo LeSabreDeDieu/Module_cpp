@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:37:10 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/11/28 10:44:00 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/11/28 13:45:22 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Fixed( const Fixed& );
 	~Fixed();
 
-	int getRawBits ( void ) const ;
+	int getRawBits ( void ) const;
 	void setRawBits ( int const raw );
 
 	float toFloat( void ) const;

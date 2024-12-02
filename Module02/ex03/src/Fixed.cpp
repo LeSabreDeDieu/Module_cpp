@@ -6,12 +6,13 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/11/28 10:49:08 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:56:46 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cmath>
 #include "Fixed.hpp"
+
+#include <cmath>
 
 using std::cout;
 using std::endl;

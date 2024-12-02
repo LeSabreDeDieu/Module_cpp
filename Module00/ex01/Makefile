@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/06/20 22:56:31 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/11/28 13:29:34 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,7 @@ NAME				=	phonebook
 
 # Compiler
 CPP					=	c++
-CFLAGS				=	-Wall -Werror -Wextra -std=c++98
-OPTIONS				=	-I $(INCDIR)
+CFLAGS				=	-Wall -Werror -Wextra -std=c++98 -I $(INCDIR)
 
 #Progress bar
 COUNT		=	1
@@ -63,7 +62,7 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)/%.o: $(SRCS)
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CFLAGS) $(OPTIONS) -o $@ -c $<
+	@$(CPP) $(CFLAGS) -o $@ -c $<
 	@printf "\rCompiling files: [%-50s] %3d%% (%d/%d) %s$(KL)" \
 		"$(shell printf '=%.0s' $$(seq 1 $$(($(COUNT) * 50 / $(TOTAL_FILES)))))" \
 		$$(($(COUNT) * 100 / $(TOTAL_FILES))) \

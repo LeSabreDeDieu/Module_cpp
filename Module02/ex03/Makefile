@@ -6,10 +6,9 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/11/28 11:18:10 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/02 13:07:32 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 #################
 ##  VARIABLES  ##
@@ -21,7 +20,11 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCS				=	$(wildcard $(SRCDIR)/*.cpp)
+SRCLIST				=	bsp.cpp		\
+						Fixed.cpp	\
+						main.cpp	\
+						Point.cpp
+SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
@@ -35,7 +38,7 @@ CFLAGS				=	-Wall -Werror -Wextra -std=c++98 -I $(INCDIR)
 
 #Progress bar
 COUNT		=	1
-TOTAL_FILES	=	$(shell find . -type f -name "*.c" | wc -l)
+TOTAL_FILES	=	$(shell find . -type f -name "*.cpp" | wc -l)
 
 # Colors
 GREEN		=	\033[0;32m
@@ -58,7 +61,7 @@ $(NAME): $(OBJ)
 	@echo -e "\r$(GREEN)********* Compilation terminée avec succès! *********$(NC)$(KL)"
 	@echo "$(GREEN)********* $(NAME) a été créée. *********$(NC)"
 
-$(OBJDIR)/%.o: $(SRCS)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(dir $@)
 	@$(CPP) $(CFLAGS) $(OPTIONS) -o $@ -c $<
 	@printf "\rCompiling files: [%-50s] %3d%% (%d/%d) %s$(KL)" \
@@ -79,3 +82,5 @@ fclean: clean
 	@echo "$(RED)********* Suppression de $(NAME) *********$(NC)"
 	
 re: fclean all
+
+.PHONY : all clean fclean re
