@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/11/28 10:17:04 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/06 09:47:43 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int Fixed::toInt() const {
 
 Fixed& Fixed::operator= (const Fixed& nbr) {
 	cout << "Copy assignment operator called" << endl;
-	if (this != &nbr)
+	if (this == &nbr)
 		return *this;
 	this->_entier = nbr.getRawBits();
 	return *this;

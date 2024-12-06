@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 08:29:32 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/06 09:47:39 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int Fixed::toInt() const {
 
 // Operateur d'affectation
 Fixed& Fixed::operator= (const Fixed& nbr) {
-	if (this != &nbr)
+	if (this == &nbr)
 		return *this;
-	this->_entier = nbr._entier;
+	this->_entier = nbr.getRawBits();
 	return *this;
 }
 
