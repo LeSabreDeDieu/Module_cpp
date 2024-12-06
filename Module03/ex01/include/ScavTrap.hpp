@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 12:02:26 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/04 15:44:50 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/04 15:52:12 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/04 15:58:52 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef __SCAVTRAP_HPP
+#define __SCAVTRAP_HPP
+
+#include <iostream>
+#include "ClapTrap.hpp"
 
 using std::cout;
 using std::endl;
+using std::string;
 
-HumanA::HumanA (string name, Weapon& weapon) : _name(name), _weapon(weapon) {}
+class ScavTrap : public ClapTrap {
+private:
+	/* data */
+public:
+	ScavTrap();
+	ScavTrap( const string name );
+	ScavTrap( const ScavTrap &src );
+	~ScavTrap();
 
-HumanA::~HumanA() {}
+	ScavTrap & operator=(const ScavTrap & src);
 
-void HumanA::attack() const {
-	cout << this->_name << " attacks with their " << this->_weapon.getType() << endl;
-}
+	void attack( const string name);
+
+	void guardGate();
+};
+
+#endif //__SCAVTRAP_HPP

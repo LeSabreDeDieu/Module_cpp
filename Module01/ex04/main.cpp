@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:51:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/08/21 12:33:55 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/04 18:18:45 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,26 @@ void Usage() {
 
 string replaceAll(string str, const string& from, const string& to) {
 	size_t start_pos = 0;
-    string result;
-    while(start_pos < str.length()) {
-        size_t pos = str.find(from, start_pos);
-        if (pos != string::npos) {
-            result += str.substr(start_pos, pos - start_pos);
-            result += to;
-            start_pos = pos + from.length();
-        } else {
-            result += str.substr(start_pos);
-            break;
-        }
+	size_t pos;
+    string result = "";
+    while((pos = str.find(from, start_pos)) != string::npos) {
+		result += str.substr(start_pos, pos - start_pos);
+		result += to;
+		start_pos = pos + from.length();
     }
+	result += str.substr(start_pos);
     return result;
 }
 
 int main(int argc, char const *argv[])
 {
 	if (argc != 4) {
+		Usage();
+		return 1;
+	}
+	if (string(argv[2]) == "")
+	{
+		cout << "The string to replace is empty" << endl;
 		Usage();
 		return 1;
 	}
@@ -53,9 +55,15 @@ int main(int argc, char const *argv[])
 
 	string tmp = string(argv[1]) + ".replace";
 	std::ofstream outFile(tmp.c_str());
+	if (!outFile.is_open())
+	{
+		cout << "Error opening outfile: " << tmp << endl;
+		inFile.close();
+		return 1;
+	}
 	string line = "";
 	while (std::getline(inFile, line)) {
-		outFile << replaceAll(line, argv[2], argv[3]) << endl;
+		outFile << replaceAll(line, argv[2], argv[3]) << std::flush;
 	}
 
 	inFile.close();

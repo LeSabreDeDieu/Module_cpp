@@ -6,11 +6,11 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:02:28 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 12:47:31 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/04 18:08:07 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/HumanB.hpp"
+#include "HumanB.hpp"
 
 using std::cout;
 using std::endl;
@@ -24,7 +24,12 @@ HumanB::HumanB(string name) :
 HumanB::~HumanB() {}
 
 void HumanB::attack() const {
+	if (this->_weapon == NULL)
+	{
+		cout << this->_name << " attack with their arms " << endl; 
+		return ;
+	}
 	cout << this->_name << " attacks with their " << this->_weapon->getType() << endl;
 }
 
-void HumanB::setWeapon(Weapon& weapon) {	this->_weapon = &weapon; }
+void HumanB::setWeapon(Weapon& weapon) { this->_weapon = &weapon; }

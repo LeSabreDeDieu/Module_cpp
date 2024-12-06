@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:26:01 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 12:10:51 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:33:07 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ using std::cout;
 using std::endl;
 
 Harl::Harl () {
-	Complaints[0].level = "Debug";
-	Complaints[0].action = &Harl::debug;
-	Complaints[1].level = "Info";
-	Complaints[1].action = &Harl::info;
-	Complaints[2].level = "Warning";
-	Complaints[2].action = &Harl::warning;
-	Complaints[3].level = "Error";
-	Complaints[3].action = &Harl::error;
+	_Complaints[0].level = "Debug";
+	_Complaints[0].action = &Harl::debug;
+	_Complaints[1].level = "Info";
+	_Complaints[1].action = &Harl::info;
+	_Complaints[2].level = "Warning";
+	_Complaints[2].action = &Harl::warning;
+	_Complaints[3].level = "Error";
+	_Complaints[3].action = &Harl::error;
 }
 
 Harl::~Harl(){}
@@ -47,8 +47,8 @@ void Harl::error() {
 void Harl::complain(std::string level) {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->Complaints[i].level == level) {
-			(this->*Complaints[i].action)();
+		if (this->_Complaints[i].level == level) {
+			(this->*_Complaints[i].action)();
 			break;
 		}
 	}

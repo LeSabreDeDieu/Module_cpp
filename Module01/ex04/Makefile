@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/06/27 14:50:46 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/02 13:54:53 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJDIR				=	objs
 SRCS				=	main.cpp 
 
 # Objects
-OBJ					=	$(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
 NAME				=	sed
@@ -34,7 +34,7 @@ CFLAGS				=	-Wall -Werror -Wextra -std=c++98
 
 #Progress bar
 COUNT		=	1
-TOTAL_FILES	=	$(shell find . -type f -name "*.c" | wc -l)
+TOTAL_FILES	=	$(shell find . -type f -name "*.cpp" | wc -l)
 
 # Colors
 GREEN		=	\033[0;32m

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/11/28 10:44:02 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/06 08:29:32 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,13 @@ Fixed Fixed::operator*( const Fixed& nbr ){
 }
 
 Fixed Fixed::operator/( const Fixed& nbr ){
-	return this->toFloat() / nbr.toFloat();
+	if (nbr.toFloat() == 0)
+	{
+		cout << "Error : division by 0" << endl;
+		return nbr;
+	}
+	else
+		return this->toFloat() / nbr.toFloat();
 }
 #pragma endregion
 

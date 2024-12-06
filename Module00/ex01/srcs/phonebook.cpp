@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 23:14:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/02 13:23:55 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/03 12:11:37 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void PhoneBook::addContact(Contact contact) {
 
 	if (this->_isEmpty)
 		this->_isEmpty = false;
-	this->_repertoire[index%8] = contact;
-	index++;
+	this->_repertoire[index] = contact;
+	if (index == 8)
+		index = 0;
+	else if (index < 8)
+		index++;
 }
 
 const Contact *PhoneBook::getRepertoire() const { return _repertoire; }

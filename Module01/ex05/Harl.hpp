@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:26:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 12:04:59 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:31:11 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class Harl
 {
 private:
-	/* data */
 	void debug( void );
 	void info( void );
 	void warning( void );
@@ -29,9 +28,9 @@ private:
 	{
 		std::string level;
 		void (Harl::*action)(void);
-	} Complaints[4];
+	} _Complaints[4];
 public:
-	Harl(/* args */);
+	Harl( void );
 	~Harl();
 
 	void complain( std::string level );
