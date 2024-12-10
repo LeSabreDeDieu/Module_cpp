@@ -6,22 +6,20 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 09:47:29 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/10 14:09:54 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-
 #include <cmath>
+#include "Fixed.hpp"
 
 using std::cout;
 using std::endl;
 
 Fixed::Fixed () : _entier(0){}
-Fixed::Fixed ( const Fixed& nbr) : _entier(nbr._entier) {}
+Fixed::Fixed ( const Fixed& nbr ){	_entier = nbr._entier; }
 Fixed::Fixed ( const int nbr ) : _entier(nbr << _RAW_BITS) {}
-Fixed::Fixed ( const float fnbr ) : _entier(roundf(fnbr * (1 << _RAW_BITS))) {}
-
+Fixed::Fixed ( const float fnbr ) { _entier = roundf(fnbr * (1 << _RAW_BITS)); }
 Fixed::~Fixed() {}
 
 int Fixed::getRawBits() const { return _entier; }
@@ -32,9 +30,8 @@ int Fixed::toInt() const { return _entier >> _RAW_BITS; }
 
 // Operateur d'affectation
 Fixed& Fixed::operator= (const Fixed& nbr) {
-	if (this == &nbr)
-		return *this;
-	this->_entier = nbr.getRawBits();
+	if (this != &nbr)
+		this->_entier = nbr.getRawBits();
 	return *this;
 }
 
@@ -53,13 +50,29 @@ bool Fixed::operator!= (const Fixed& nbr) { return (this->_entier != nbr._entier
 #pragma endregion
 
 #pragma region "Operateur de calcul"
-Fixed Fixed::operator+ ( const Fixed& nbr ){ return this->toFloat() + nbr.toFloat(); }
+Fixed Fixed::operator+( const Fixed& nbr ){ return this->getRawBits() + nbr.getRawBits(); }
 
-Fixed Fixed::operator- ( const Fixed& nbr ){ return this->toFloat() - nbr.toFloat(); }
+Fixed Fixed::operator-( const Fixed& nbr ){ return this->getRawBits() - nbr.getRawBits(); }
 
-Fixed Fixed::operator* ( const Fixed& nbr ){ return this->toFloat() * nbr.toFloat(); }
+Fixed Fixed::operator*( const Fixed& nbr ){
+	Fixed tmp;
+	tmp.setRawBits((this->getRawBits() * nbr.getRawBits()) >> _RAW_BITS);
+	return tmp;
+}
 
-Fixed Fixed::operator/ ( const Fixed& nbr ){ return this->toFloat() / nbr.toFloat(); }
+Fixed Fixed::operator/( const Fixed& nbr ){
+	if (nbr.getRawBits() == 0)
+	{
+		cout << "Error : division by 0" << endl;
+		return nbr;
+	}
+	else
+	{
+		Fixed tmp;
+		tmp.setRawBits((this->getRawBits() << _RAW_BITS) / nbr.getRawBits());
+		return tmp;
+	}
+}
 #pragma endregion
 
 #pragma region "Operateur d'incrementation"

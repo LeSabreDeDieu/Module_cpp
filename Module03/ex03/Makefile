@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/12/10 13:16:17 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/10 15:01:05 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	ScavTrap.cpp	\
+SRCLIST				=	DiamondTrap.cpp	\
+						FragTrap.cpp	\
+						ScavTrap.cpp	\
 						ClapTrap.cpp	\
 						main.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
@@ -29,11 +31,11 @@ SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	scavtrap
+NAME				=	diamondtrap
 
 # Compiler
 CPP					=	c++
-CFLAGS				=	-Wall -Werror -Wextra -std=c++98 -I $(INCDIR)
+CFLAGS				=	-Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98 -I $(INCDIR)
 
 #Progress bar
 COUNT		=	1

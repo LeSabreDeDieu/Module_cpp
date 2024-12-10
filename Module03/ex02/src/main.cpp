@@ -6,11 +6,12 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:30:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 13:23:30 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:52:56 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main( void )
 {
@@ -19,6 +20,9 @@ int main( void )
 
 	ScavTrap ScavTrap1 = ScavTrap("Remy");
 	ScavTrap ScavTrap2 = ScavTrap("Alexis");
+
+	FragTrap FragTrap1 = FragTrap("Martin");
+	FragTrap FragTrap2 = FragTrap("Francois");
 
 	ClapTrap1.setAttackDamage(1);
 	ClapTrap2.setAttackDamage(1);
@@ -94,6 +98,36 @@ int main( void )
 	ScavTrap2.takeDamage(ScavTrap1.getAttackDamage());
 
 	ScavTrap1.guardGate();
+
+	cout << endl;
+
+	cout << "Test FragTrap\n" << endl;
+
+	FragTrap1.attack(FragTrap2.getName());
+	FragTrap2.takeDamage(FragTrap1.getAttackDamage());
+
+	cout << endl;
+
+	FragTrap2.attack(FragTrap1.getName());
+	FragTrap1.takeDamage(FragTrap2.getAttackDamage());
+
+	cout << endl;
+
+	FragTrap2.setHitPoint(1);
+
+	FragTrap1.beRepaired(1);
+	FragTrap1.attack(FragTrap2.getName());
+	FragTrap2.takeDamage(FragTrap1.getAttackDamage());
+
+	cout << endl;
+
+	FragTrap2.attack(FragTrap1.getName());
+	FragTrap2.beRepaired(1);
+
+	FragTrap1.attack(FragTrap2.getName());
+	FragTrap2.takeDamage(FragTrap1.getAttackDamage());
+
+	FragTrap1.highFivesGuys();
 
 	cout << endl;
 	// ------------------------------- End Tests ----------------------------------- //

@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/12/10 13:16:17 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/10 13:58:03 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	ScavTrap.cpp	\
+SRCLIST				=	FragTrap.cpp	\
+						ScavTrap.cpp	\
 						ClapTrap.cpp	\
 						main.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
@@ -29,7 +30,7 @@ SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	scavtrap
+NAME				=	fragtrap
 
 # Compiler
 CPP					=	c++

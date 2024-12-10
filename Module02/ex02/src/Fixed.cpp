@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 09:47:39 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:30:25 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,31 @@ bool Fixed::operator!= (const Fixed& nbr) { return (this->_entier != nbr._entier
 
 #pragma region "Operateur de calcul"
 Fixed Fixed::operator+( const Fixed& nbr ){
-	return this->toFloat() + nbr.toFloat();
+	return this->getRawBits() + nbr.getRawBits();
 }
 
 Fixed Fixed::operator-( const Fixed& nbr ){
-	return this->toFloat() - nbr.toFloat();
+	return this->getRawBits() - nbr.getRawBits();
 }
 
 Fixed Fixed::operator*( const Fixed& nbr ){
-	return this->toFloat() * nbr.toFloat();
+	Fixed tmp;
+	tmp.setRawBits((this->getRawBits() * nbr.getRawBits()) >> _RAW_BITS);
+	return tmp;
 }
 
 Fixed Fixed::operator/( const Fixed& nbr ){
-	if (nbr.toFloat() == 0)
+	if (nbr.getRawBits() == 0)
 	{
 		cout << "Error : division by 0" << endl;
 		return nbr;
 	}
 	else
-		return this->toFloat() / nbr.toFloat();
+	{
+		Fixed tmp;
+		tmp.setRawBits((this->getRawBits() << _RAW_BITS) / nbr.getRawBits());
+		return tmp;
+	}
 }
 #pragma endregion
 
