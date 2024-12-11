@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/12/11 08:16:26 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/11 16:39:50 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,14 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	Animal.cpp	\
-						Cat.cpp		\
-						Dog.cpp		\
-						WrongAnimal.cpp	\
-						WrongCat.cpp	\
-						main.cpp
+SRCLIST				=	main.c
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	animal
+NAME				=	materia
 
 # Compiler
 CPP					=	c++

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/11 08:04:00 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 08:11:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
-}
+WrongAnimal::WrongAnimal () : type("Animal") { cout << "Wrong animal default constructor called" << endl; }
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+WrongAnimal::~WrongAnimal () { cout << "Wrong animal destructor called" << endl; }
 
-Cat & Cat::operator=( const Cat & src )
+WrongAnimal & WrongAnimal::operator=( const WrongAnimal & src )
 {
 	if (this != &src)
 		this->type = src.type;
 	return *this;
 }
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+void WrongAnimal::makeSound () const { cout << "Wrong animal make some sound" << endl; }
+
+const string WrongAnimal::getType() const { return type; };

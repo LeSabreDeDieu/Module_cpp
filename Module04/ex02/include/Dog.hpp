@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/10 15:25:48 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 08:49:17 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
-}
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+class Dog : public Animal {
+private:
+	Brain *_brain;
+public:
+	Dog();
+	~Dog();
+	Dog & operator=(const Dog & src);
 
-Cat & Cat::operator=( const Cat & src )
-{
-	if (this != &src)
-		this->type = src.type;
-	return *this;
-}
+	virtual void makeSound( void ) const;
+};
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+#endif //DOG_HPP

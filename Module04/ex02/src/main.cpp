@@ -6,9 +6,11 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:31:21 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:29:38 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/11 10:49:36 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#define NBANIMALS 10
 
 #include "Animal.hpp"
 #include "Cat.hpp"
@@ -16,10 +18,14 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+#include <cstdlib>
+
 int main()
 {
+	cout << endl << YELLOW << "test Animaux : " << endl;
+
 	cout << GREEN << "Animals constructors : " << RESET << endl;
-	const Animal* animal = new Animal();
+	// const Animal* animal = new Animal();
 	const Animal* cat = new Cat();
 	const Animal* dog = new Dog();
 
@@ -37,18 +43,49 @@ int main()
 	cout << endl << GREEN << "Sound of animals : " << RESET << endl;
 	cat->makeSound();
 	dog->makeSound();
-	animal->makeSound();
+	// animal->makeSound();
 
 	cout << endl << GREEN << "Sound of wrong animals : " << RESET << endl;
 	wrongCat->makeSound();
 	wrongAnimal->makeSound();
 
 	cout << endl << RED << "Animals destructors : " << RESET << endl;
-	delete animal;
+	// delete animal;
 	delete cat;
 	delete dog;
 	cout << endl << RED << "Wrong animals destructors : " << RESET << endl;
 	delete wrongAnimal;
 	delete wrongCat;
-	return 0;
+	
+	cout << endl << YELLOW << "test brains : " << endl;
+
+	srand (time(NULL));
+	cout << GREEN << "Animals constructors : " << RESET << endl;
+	Animal* tab[NBANIMALS];
+
+	for (int i = 0; i < NBANIMALS; i++)
+	{
+		cout << endl << GREEN << "Animals constructors : " << RESET << endl;
+		int randAnim = rand() % 2 + 1;
+		switch (randAnim)
+		{
+		case 1:
+			tab[i] = new Cat;
+			break;
+		case 2:
+			tab[i] = new Dog;
+			break;
+		default:
+			break;
+		}
+	}
+
+	for (int i = 0; i < NBANIMALS; i++) {
+		cout << endl << GREEN << "Sound of animal : " << RESET << endl;
+		tab[i]->makeSound();
+		cout << endl << RED << "Animal destructor : " << RESET << endl;
+		delete tab[i];
+	}
+
+	return (0);
 }

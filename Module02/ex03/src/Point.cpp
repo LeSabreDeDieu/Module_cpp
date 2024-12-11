@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:24:17 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 09:47:26 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/11 08:27:20 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ Fixed Point::getX() const { return _x; }
 
 Fixed Point::getY() const { return _y; }
 
-Fixed& Fixed::operator= (const Fixed& nbr) {
-	if (this == &nbr)
-		return *this;
-	this->_entier = nbr.getRawBits();
+Point& Point::operator= (const Point& point) {
+	if (this != &point) {
+		_x = point._x;
+		_y = point._y;
+	}
 	return *this;
 }

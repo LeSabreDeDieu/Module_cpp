@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:27:00 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 15:45:46 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/11 08:11:30 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ Dog::Dog() : Animal() {
 	type = "Dog";
 }
 
-Dog::~Dog() {
-	cout << "Dog destructor called" << endl;
-}
+Dog::~Dog() { cout << "Dog destructor called" << endl; }
 
 Dog & Dog::operator=( const Dog & src )
 {
@@ -28,6 +26,4 @@ Dog & Dog::operator=( const Dog & src )
 	return *this;
 }
 
-void Dog::makeSound() const {
-	cout << "Woof Woof" << endl;
-}
+void Dog::makeSound() const { cout << "Woof Woof" << endl; }

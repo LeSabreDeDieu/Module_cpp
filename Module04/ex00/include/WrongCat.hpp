@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/11 08:02:15 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 08:03:49 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
-}
+#include "WrongAnimal.hpp"
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+class WrongCat : public WrongAnimal {
+public:
+	WrongCat();
+	~WrongCat();
+	WrongCat & operator=(const WrongCat & src);
 
-Cat & Cat::operator=( const Cat & src )
-{
-	if (this != &src)
-		this->type = src.type;
-	return *this;
-}
+	virtual void makeSound( void ) const;
+};
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+#endif //WRONGCAT_HPP

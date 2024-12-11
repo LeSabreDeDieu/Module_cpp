@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/11 07:58:17 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 08:21:00 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
-}
+# include <iostream>
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+using std::cout;
+using std::endl;
+using std::string;
 
-Cat & Cat::operator=( const Cat & src )
+class WrongAnimal
 {
-	if (this != &src)
-		this->type = src.type;
-	return *this;
-}
+protected:
+	string type;
+public:
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal & operator=(const WrongAnimal & src);
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+	const string getType() const;
+	virtual void makeSound( void ) const;
+};
+
+
+#endif //WRONGANIMAL_HPP

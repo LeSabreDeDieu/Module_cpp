@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/11 08:09:42 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 08:16:46 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
+WrongCat::WrongCat() : WrongAnimal() {
+	cout << "Wrong cat default constructor called" << endl;
+	type = "Wrong cat";
 }
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+WrongCat::~WrongCat() { cout << "Wrong cat destructor called" << endl; }
 
-Cat & Cat::operator=( const Cat & src )
+WrongCat & WrongCat::operator=( const WrongCat & src )
 {
 	if (this != &src)
 		this->type = src.type;
 	return *this;
 }
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+void WrongCat::makeSound() const { cout << "Meow Meow" << endl; }

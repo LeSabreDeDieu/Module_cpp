@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 15:21:42 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:10:14 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/12/11 16:40:48 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/11 16:44:14 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-Cat::Cat() : Animal() {
-	cout << "Cat default constructor called" << endl;
-	type = "Cat";
-}
+#include <iostream>
+#include <string>
 
-Cat::~Cat() { cout << "Cat destructor called" << endl; }
+using std::cout;
+using std::endl;
+using std::string;
 
-Cat & Cat::operator=( const Cat & src )
+class ICharacter;
+
+class AMateria
 {
-	if (this != &src)
-		this->type = src.type;
-	return *this;
-}
+protected:
+	string _type;
+public:
+	AMateria(std::string const & type);
+	string const & getType() const;
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
+};
 
-void Cat::makeSound() const {
-	cout << "Meow Meow" << endl;
-}
+#endif
