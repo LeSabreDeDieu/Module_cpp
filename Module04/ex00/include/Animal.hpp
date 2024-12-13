@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:10:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 10:50:04 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:26:27 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,19 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
-
 class Animal
 {
 protected:
-	string type;
+	std::string _type;
 public:
 	Animal();
+	Animal(const std::string type);
+	Animal(const Animal & src);
 	virtual ~Animal();
+
 	Animal & operator=(const Animal & src);
 
-	const string getType() const;
+	const std::string getType() const;
 	virtual void makeSound( void ) const;
 };
 

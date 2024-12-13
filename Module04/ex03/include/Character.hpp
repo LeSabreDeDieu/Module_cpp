@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:03:57 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/12 16:30:06 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:59:34 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,19 @@
 
 #define MAX_INVENTORY 4
 
-using std::cout;
-using std::endl;
-using std::string;
-
 class Character : public ICharacter {
 private:
-	string _name;
+	std::string _name;
 	AMateria *_inventory[MAX_INVENTORY];
 public:
 	Character();
-	Character(string name);
+	Character(std::string name);
 	Character(const Character & src);
 	~Character();
 
 	Character & operator=( const Character & src );
 
-	string const & getName() const;
+	std::string const & getName() const;
 	AMateria* const * getInventory() const;
 
 	void equip(AMateria* m);

@@ -6,28 +6,33 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:31:21 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 10:49:36 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:52:43 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define NBANIMALS 10
 
-#include "Animal.hpp"
+#include <cstdlib>
+#include <iostream>
+
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-#include <cstdlib>
+using std::cout;
+using std::endl;
+using std::string;
 
 int main()
 {
 	cout << endl << YELLOW << "test Animaux : " << endl;
 
 	cout << GREEN << "Animals constructors : " << RESET << endl;
-	// const Animal* animal = new Animal();
-	const Animal* cat = new Cat();
-	const Animal* dog = new Dog();
+	// const AAnimal* animal = new AAnimal();
+	const AAnimal* cat = new Cat();
+	const AAnimal* dog = new Dog();
 
 	cout << endl << GREEN << "Wrong animals constructors : " << RESET << endl;
 	const WrongAnimal* wrongAnimal = new WrongAnimal();
@@ -61,7 +66,7 @@ int main()
 
 	srand (time(NULL));
 	cout << GREEN << "Animals constructors : " << RESET << endl;
-	Animal* tab[NBANIMALS];
+	AAnimal* tab[NBANIMALS];
 
 	for (int i = 0; i < NBANIMALS; i++)
 	{

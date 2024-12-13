@@ -6,16 +6,22 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:27:00 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:54:27 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:58:05 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal() {
+using std::cout;
+using std::endl;
+using std::string;
+
+Dog::Dog() : AAnimal("Dog"), _brain(new Brain) {
 	cout << "Dog default constructor called" << endl;
-	type = "Dog";
-	_brain = new Brain();
+}
+
+Dog::Dog(const Dog & src) : AAnimal(src._type), _brain(new Brain(*src._brain)){
+	cout << "Dog copy constructor called" << endl;
 }
 
 Dog::~Dog() {
@@ -23,15 +29,17 @@ Dog::~Dog() {
 	delete _brain;
 }
 
-Dog & Dog::operator=( const Dog & src )
-{
+Dog & Dog::operator=( const Dog & src ) {
 	if (this != &src) {
-		this->type = src.type;
-		if (_brain)
-				delete _brain;
-			this->_brain = new Brain(*src._brain);
+		this->_type = src._type;
+		if (_brain) {
+			delete _brain;
+		}
+		_brain = new Brain(*src._brain);
 	}
 	return *this;
 }
 
-void Dog::makeSound() const { cout << "Woof Woof" << endl; }
+void Dog::makeSound() const {
+	cout << "Woof Woof" << endl;
+}

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:02:16 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/12 16:30:22 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:59:50 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include "AMateria.hpp"
 
-class ICharacter
-{
+class ICharacter {
 public:
 	virtual ~ICharacter() {}
 	virtual std::string const & getName() const = 0;

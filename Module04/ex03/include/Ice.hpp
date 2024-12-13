@@ -17,10 +17,6 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-using std::cout;
-using std::endl;
-using std::string;
-
 class Ice : public AMateria {
 public:
 	Ice();

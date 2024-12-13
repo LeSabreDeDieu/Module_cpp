@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 08:02:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:03:49 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:38:34 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 class WrongCat : public WrongAnimal {
 public:
 	WrongCat();
+	WrongCat(const WrongCat & src);
 	~WrongCat();
+
 	WrongCat & operator=(const WrongCat & src);
 
 	virtual void makeSound( void ) const;

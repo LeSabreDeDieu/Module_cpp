@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:25:48 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:49:17 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:37:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ private:
 	Brain *_brain;
 public:
 	Dog();
+	Dog(const Dog & src);
 	~Dog();
+
 	Dog & operator=(const Dog & src);
 
 	virtual void makeSound( void ) const;

@@ -6,15 +6,19 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:31:21 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 08:29:38 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:25:37 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+
+using std::cout;
+using std::endl;
 
 int main()
 {

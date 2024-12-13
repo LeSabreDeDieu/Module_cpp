@@ -6,11 +6,15 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:44:26 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/12 16:00:09 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 11:02:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 Cure::Cure() : AMateria("cure") {}
 
@@ -21,8 +25,9 @@ Cure::Cure( const Cure & src ) : AMateria(src._type) {
 Cure::~Cure() {}
 
 Cure & Cure::operator=( const Cure & src ) {
-	if (this != &src)
+	if (this != &src) {
 		AMateria::operator=(src);
+	}
 	return *this;
 }
 

@@ -6,11 +6,15 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 09:18:34 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/12 16:00:35 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 11:02:33 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 Ice::Ice() : AMateria("ice") {}
 
@@ -21,8 +25,9 @@ Ice::Ice(const Ice & src) : AMateria(src._type) {
 Ice::~Ice() {}
 
 Ice & Ice::operator=(const Ice & src){
-	if (this != &src)
+	if (this != &src) {
 		AMateria::operator=(src);
+	}
 	return *this;
 }
 

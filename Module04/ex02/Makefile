@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2024/12/11 08:55:14 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/12/13 10:50:24 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	Animal.cpp		\
+SRCLIST				=	AAnimal.cpp		\
 						Brain.cpp		\
 						Cat.cpp			\
 						Dog.cpp			\

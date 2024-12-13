@@ -6,11 +6,14 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:31:21 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/11 09:10:41 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 10:49:25 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define NBANIMALS 10
+
+#include <iostream>
+#include <cstdlib>
 
 #include "Animal.hpp"
 #include "Cat.hpp"
@@ -18,7 +21,9 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-#include <cstdlib>
+using std::cout;
+using std::endl;
+using std::string;
 
 int main()
 {

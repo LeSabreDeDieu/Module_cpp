@@ -6,9 +6,11 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:30:49 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/12 16:34:50 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/13 11:03:39 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #include "AMateria.hpp"
 #include "Character.hpp"
@@ -17,7 +19,6 @@
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
-#include <iostream>
 
 void testMateriaSource() {
 	std::cout << "Testing MateriaSource..." << std::endl;
