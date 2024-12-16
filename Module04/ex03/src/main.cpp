@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:30:49 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/13 11:03:39 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/16 08:38:00 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void testEquipUnequip() {
 	for (size_t i = 0; i < MAX_INVENTORY; i++)
 	{
 		if (me->getInventory()[i])
-			cout << "Materia : " << me->getInventory()[i]->getType() << endl;
+			std::cout << "Materia : " << me->getInventory()[i]->getType() << std::endl;
 	}
 
 	delete ice;
@@ -86,9 +86,9 @@ void testEquipUnequip() {
 
 int main() {
 	testMateriaSource();
-	cout << endl;
+	std::cout << std::endl;
 	testCharacter();
-	cout << endl;
+	std::cout << std::endl;
 	testEquipUnequip();
 
 	return 0;

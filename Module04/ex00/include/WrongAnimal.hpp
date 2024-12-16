@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 07:58:17 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/13 10:28:43 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/16 08:36:56 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	WrongAnimal & operator=(const WrongAnimal & src);
 
 	const std::string getType() const;
-	virtual void makeSound( void ) const;
+	void makeSound( void ) const;
 };
 
 
