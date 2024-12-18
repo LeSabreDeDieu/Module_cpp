@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:03:39 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/18 15:25:34 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 16:48:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 #define HIGHESTGRADE 1
 #define LOWESTGRADE 150
 
+class Form;
+
 class Bureaucrat {
 private:
     /* Attributes */
     const std::string _name;
-    unsigned int _grade;
+    int _grade;
 public:
     /* Constructors and destructors */
     Bureaucrat();
@@ -32,10 +34,11 @@ public:
 
     Bureaucrat& operator=( const Bureaucrat & );
     
-    /* Getter and Setters */
+    /* Getters */
     const std::string getName() const ;
-    unsigned int getGrade() const ;
-    void setGrade( unsigned int );
+    int getGrade() const ;
+
+    void signForm( Form & );
 
     /* Methods */
     void promote();
