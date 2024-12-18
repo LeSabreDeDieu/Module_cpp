@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:26:01 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 12:29:23 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:11:38 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ void Harl::error() {
 void Harl::complain(std::string level) {
 	int levelHarl = 5;
 	
-	for (size_t i = 0; i < level.length(); i++)
-	{
+	for (size_t i = 0; i < level.length(); i++) {
 		level[i] = toupper(level[i]);
 	}
 	

@@ -6,15 +6,18 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:30:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 13:52:56 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:07:01 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int main( void )
-{
+using std::cout;
+using std::endl;
+using std::string;
+
+int main( void ) {
 	ClapTrap ClapTrap1 = ClapTrap("Jean");
 	ClapTrap ClapTrap2 = ClapTrap("Paul");
 

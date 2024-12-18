@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:02:28 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/04 18:08:07 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:10:13 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 using std::cout;
 using std::endl;
 
-HumanB::HumanB(string name) :
+HumanB::HumanB(std::string name) :
 	_name(name)
 {
 	_weapon = NULL;

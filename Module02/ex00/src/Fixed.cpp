@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 09:46:59 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:12:40 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ Fixed::Fixed () :
 	cout << "Default constructor called" << endl;
 }
 
-Fixed::Fixed ( const Fixed& nbr)
-{
+Fixed::Fixed ( const Fixed& nbr) {
 	cout << "Copy constructor called" << endl;
 	*this = nbr;
 }

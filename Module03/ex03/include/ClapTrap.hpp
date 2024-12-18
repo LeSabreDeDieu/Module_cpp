@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:06:59 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 14:47:20 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:11:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,33 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
-
-class ClapTrap
-{
+class ClapTrap {
 protected :
-	string _name;
+	std::string _name;
 	int	_hitPoint;
 	int _energyPoint;
 	int _attackDamage;
 public:
-	ClapTrap(string name = "none", int hitPoint = 10, int energyPoint = 10, int attackDamage = 0);
+	ClapTrap();
+	ClapTrap( std::string name, int hitPoint, int energyPoint, int attackDamage );
 	ClapTrap( const ClapTrap &src);
 	~ClapTrap();
 
 	ClapTrap & operator=(const ClapTrap & src);
 	
-	string getName( void ) const;
+	std::string getName( void ) const;
 	int getHitPoint( void ) const;
 	int getEnergyPoint( void ) const;
 	int getAttackDamage( void ) const;
 
-	void setName( string name );
+	void setName( std::string name );
 	void setHitPoint( int hitPoint );
 	void setEnergyPoint( int energyPoint );
 	void setAttackDamage( int attackDamage );
 
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void attack( const std::string& target );
+	void takeDamage( unsigned int amount );
+	void beRepaired( unsigned int amount );
 };
 
 #endif

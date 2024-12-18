@@ -1,23 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/18 11:07:22 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/12/18 11:07:35 by sgabsi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __Zombie_HPP__
 #define __Zombie_HPP__
 
 #include <iostream>
 #include <string>
 
-using std::string;
-
 class Zombie
 {
 private:
 	/* data */
-	string _nom;
+	std::string _nom;
 public:
 	void announce( void );
 	Zombie();
-	Zombie(string name);
+	Zombie(std::string name);
 	~Zombie();
 };
 
-Zombie* zombieHorde(int N, string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif // __Zombie_HPP__

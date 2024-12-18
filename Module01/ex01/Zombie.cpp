@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:00:59 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 11:01:01 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:07:13 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ using std::endl;
 
 Zombie::Zombie() {}
 
-Zombie::Zombie (string nom) :
+Zombie::Zombie (std::string nom) :
 	_nom(nom)
 {}
 

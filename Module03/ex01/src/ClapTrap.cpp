@@ -6,17 +6,29 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:15:49 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/04 09:39:19 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:57:28 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
+#include "ClapTrap.hpp"
+
+std::cout;
+std::endl;
+std::string;
+
+ClapTrap::ClapTrap() :
+	_name("none"),
+	_hitPoint(10),
+	_energyPoint(10),
+	_attackDamage(0)
+{ cout << "ClapTrap " << _name << " created" << endl; }
 
 ClapTrap::ClapTrap(string name, int hitPoint, int energyPoint, int attackDamage) :
 	_name(name),
 	_hitPoint(hitPoint),
 	_energyPoint(energyPoint),
-	_attackDamage(attackDamage) { cout << "ClapTrap " << _name << " created" << endl; }
+	_attackDamage(attackDamage)
+{ cout << "ClapTrap " << _name << " created" << endl; }
 
 ClapTrap::ClapTrap( const ClapTrap &src) :
 	_name(src._name),

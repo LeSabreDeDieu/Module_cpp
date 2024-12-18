@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:37:10 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/05 12:43:09 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:12:29 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include <iostream>
 
-class Fixed
-{
+class Fixed {
 private:
 	int	_entier;
 	static const int _RAW_BITS = 8;

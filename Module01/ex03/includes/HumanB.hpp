@@ -6,26 +6,22 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:55:58 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 12:44:21 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:09:04 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __HUMANB_HPP__
-#define __HUMANB_HPP__
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <iostream>
 #include "Weapon.hpp"
 
-using std::string;
-
-class HumanB
-{
+class HumanB {
 private:
-	/* data */
-	string _name;
+	std::string _name;
 	Weapon* _weapon;
 public:
-	HumanB(string name);
+	HumanB(std::string name);
 	~HumanB();
 
 	void attack() const;

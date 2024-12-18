@@ -6,12 +6,12 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:26:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/04 10:31:11 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:11:14 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __HARL_HPP__
-#define __HARL_HPP__
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 #include <string>
@@ -36,5 +36,4 @@ public:
 	void complain( std::string level );
 };
 
-
-#endif //__HARL_HPP__
+#endif //HARL_HPP

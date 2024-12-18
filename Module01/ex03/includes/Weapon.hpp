@@ -6,30 +6,25 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:38:34 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/06/27 12:23:04 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:09:28 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WEAPON_HPP__
-#define __WEAPON_HPP__
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <iostream>
 
-using std::string;
-
-class Weapon
-{
+class Weapon {
 private:
-	/* data */
-	string _type;
+	std::string _type;
 public:
 	Weapon();
-	Weapon(string type);
+	Weapon(std::string type);
 	~Weapon();
 
-	const string getType() const;
-	void setType(string type);
+	const std::string getType() const;
+	void setType(std::string type);
 };
-
 
 #endif

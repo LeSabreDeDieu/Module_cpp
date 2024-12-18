@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 14:09:54 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:17:00 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ Fixed& Fixed::operator= (const Fixed& nbr) {
 }
 
 #pragma region "Operateur de comparaison"
-bool Fixed::operator> (const Fixed& nbr) { return (this->_entier > nbr._entier); }
+bool Fixed::operator> ( const Fixed& nbr ) { return (this->_entier > nbr._entier); }
 
-bool Fixed::operator< (const Fixed& nbr) { return (this->_entier < nbr._entier); }
+bool Fixed::operator< ( const Fixed& nbr ) { return (this->_entier < nbr._entier); }
 
-bool Fixed::operator>= (const Fixed& nbr) { return (this->_entier >= nbr._entier); }
+bool Fixed::operator>= ( const Fixed& nbr ) { return (this->_entier >= nbr._entier); }
 
-bool Fixed::operator<= (const Fixed& nbr) { return (this->_entier <= nbr._entier); }
+bool Fixed::operator<= ( const Fixed& nbr ) { return (this->_entier <= nbr._entier); }
 
-bool Fixed::operator== (const Fixed& nbr) { return (this->_entier == nbr._entier); }
+bool Fixed::operator== ( const Fixed& nbr ) { return (this->_entier == nbr._entier); }
 
-bool Fixed::operator!= (const Fixed& nbr) { return (this->_entier != nbr._entier); }
+bool Fixed::operator!= ( const Fixed& nbr ) { return (this->_entier != nbr._entier); }
 #pragma endregion
 
 #pragma region "Operateur de calcul"
@@ -101,32 +101,32 @@ Fixed Fixed::operator--( int ) {
 
 #pragma region "min & max"
 
-const Fixed& Fixed::min(const Fixed &nb1, const Fixed &nb2) {
+const Fixed& Fixed::min( const Fixed &nb1, const Fixed &nb2 ) {
 	if (nb1._entier < nb2._entier)
 		return nb1;
 	return nb2;
 }
 
-Fixed& Fixed::min(Fixed &nb1, Fixed &nb2) {
+Fixed& Fixed::min( Fixed &nb1, Fixed &nb2 ) {
 	if (nb1._entier < nb2._entier)
 		return nb1;
 	return nb2;
 }
 
-const Fixed& Fixed::max(const Fixed &nb1, const Fixed &nb2) {
+const Fixed& Fixed::max( const Fixed &nb1, const Fixed &nb2 ) {
 	if (nb1.getRawBits() > nb2.getRawBits())
 		return nb1;
 	return nb2;
 }
 
-Fixed& Fixed::max(Fixed &nb1, Fixed &nb2) {
+Fixed& Fixed::max( Fixed &nb1, Fixed &nb2 ) {
 	if (nb1.getRawBits() > nb2.getRawBits())
 		return nb1;
 	return nb2;
 }
 #pragma endregion
 
-std::ostream& operator<<(std::ostream &os, Fixed const &fixed) {
+std::ostream& operator<<( std::ostream &os, Fixed const &fixed ) {
 	os << fixed.toFloat();
 	return os;
 }

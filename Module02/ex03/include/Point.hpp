@@ -6,19 +6,18 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:49:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/02 12:56:11 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:16:02 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __POINT_HPP__
-#define __POINT_HPP__
+#ifndef POINT_HPP
+#define POINT_HPP
 
 #include "Fixed.hpp"
 
 #include <iostream>
 
 class Point {
-
 private:
 	Fixed _x;
 	Fixed _y;

@@ -6,17 +6,16 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:37:10 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/11/28 10:33:53 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:13:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED_HPP__
-#define __FIXED_HPP__
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
-class Fixed
-{
+class Fixed {
 private:
 	int	_entier;
 	static const int _RAW_BITS = 8;
@@ -36,6 +35,6 @@ public:
 	int		toInt ( void ) const;
 };
 
-std::ostream& operator<<(std::ostream &os, Fixed const &fixed) ;
+std::ostream& operator<<( std::ostream &os, Fixed const &fixed );
 
 #endif

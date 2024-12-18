@@ -6,11 +6,15 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:52:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 13:57:38 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:06:34 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 FragTrap::FragTrap() : ClapTrap("FragTrap", 100, 100, 30) {
 	cout << "FragTrap " << getName() << " created" << endl;

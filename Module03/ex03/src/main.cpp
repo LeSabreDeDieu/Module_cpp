@@ -6,11 +6,15 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:30:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 15:05:22 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:16:38 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 int main( void )
 {

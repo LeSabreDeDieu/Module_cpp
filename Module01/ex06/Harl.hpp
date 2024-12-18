@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:26:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/07/04 12:04:59 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:12:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,23 @@
 #include <iostream>
 #include <string>
 
-class Harl
-{
+class Harl {
 private:
-	/* data */
 	void debug( void );
 	void info( void );
 	void warning( void );
 	void error( void );
 
-	struct Complaint
-	{
+	struct Complaint {
 		std::string level;
-		void (Harl::*action)(void);
+		void ( Harl::*action )( void );
 	} Complaints[4];
 public:
-	Harl(/* args */);
+	Harl();
 	~Harl();
 
 	void complain( std::string level );
 };
 
 
-#endif //__HARL_HPP__
+#endif //HARL_HPP

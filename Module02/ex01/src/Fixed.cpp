@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:43:50 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/06 09:47:43 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 11:13:24 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int Fixed::toInt() const {
 	return _entier >> _RAW_BITS;
 }
 
-Fixed& Fixed::operator= (const Fixed& nbr) {
+Fixed& Fixed::operator= ( const Fixed& nbr ) {
 	cout << "Copy assignment operator called" << endl;
 	if (this == &nbr)
 		return *this;
@@ -67,7 +67,7 @@ Fixed& Fixed::operator= (const Fixed& nbr) {
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream &os, Fixed const &fixed) {
+std::ostream& operator<<( std::ostream &os, Fixed const &fixed ) {
 	os << fixed.toFloat();
 	return os;
 }

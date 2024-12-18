@@ -6,11 +6,15 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:52:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 09:39:52 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:07:06 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
 
 ScavTrap::ScavTrap() : ClapTrap("ScavTrap", 100, 50, 20) {
 	cout << "ScavTrap " << getName() << " created" << endl;

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:00:59 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/10 14:12:31 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:12:28 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-using std::cout;
-using std::endl;
-using std::string;
-
 class DiamondTrap : public ScavTrap, public FragTrap {
 private:
-	string _name;
+	std::string _name;
 public:
 	DiamondTrap();
-	DiamondTrap( string name );
+	DiamondTrap( std::string name );
 	DiamondTrap( const DiamondTrap &src );
 	~DiamondTrap();
 

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:11:41 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/13 11:01:49 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/12/18 15:20:10 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ Character::Character(string name) : _name(name) {
 Character::Character(const Character & src) : _name(src._name) {
 	for (int i = 0; i < MAX_INVENTORY; i++) {
 		delete _inventory[i];
-		_inventory[i] = src._inventory[i];
+		if (src._inventory[i])
+			_inventory[i] = src._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 	}
 }
 
@@ -49,7 +52,10 @@ Character & Character::operator=(const Character & src) {
 		_name = src._name;
 		for (int i = 0; i < MAX_INVENTORY; i++) {
 			delete _inventory[i];
-			_inventory[i] = src._inventory[i];
+			if (src._inventory[i])
+				_inventory[i] = src._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
 		}
 	}
 	return *this;
