@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 21:37:20 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/06 15:43:16 by sgabsi           ###   ########.fr       */
+/*   Created: 2025/01/09 15:58:06 by sgabsi            #+#    #+#             */
+/*   Updated: 2025/01/09 15:59:23 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INTERN_HPP
+#define INTERN_HPP
+
 #include <iostream>
+#include "AForm.hpp"
 
-using std::cout;
-using std::endl;
-using std::string;
+class Intern {
+public:
+	// Constructors and destructors
+	Intern();
+	Intern(const Intern& other);
+	~Intern();
 
-int main(int argc, char **argv) {
-	if (argc == 1) {
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
-		return 0;
-	}
-	else {
-		for (int i = 1; i < argc; i++) {
-			string str = argv[i];
-			for (size_t j = 0; j < str.size(); j++) {
-				cout << (char)toupper(str[j]);
-			}
-		}
-	}
-	cout << endl;
-	return 0;
-}
+	/* Operator overloads */
+	Intern& operator=(const Intern& other);
+
+	/* Member functions */
+	AForm *makeForm(std::string name, std::string target);
+};
+
+#endif //INTERN_HPP

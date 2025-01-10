@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2025/01/09 14:56:36 by sgabsi           ###   ########.fr        #
+#    Updated: 2025/01/09 16:31:49 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCLIST				=	main.cpp					\
 						AForm.cpp 					\
 						PresidentialPardonForm.cpp	\
 						RobotomyRequestForm.cpp		\
-						ShrubberyCreationForm.cpp
+						ShrubberyCreationForm.cpp	\
+						Intern.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects

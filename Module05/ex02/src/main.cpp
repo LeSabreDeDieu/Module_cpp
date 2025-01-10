@@ -6,13 +6,17 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 09:40:54 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/12/18 17:09:48 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:35:21 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 using std::cout;
 using std::endl;
@@ -31,80 +35,209 @@ using std::string;
 
 int main( void ) {
     
-    cout << BLUE << "Form tests" << RESET << endl;
-	cout << "----------------" << endl;
-	
-	TEST("1", "Create Form with Correct information", {
-		Form form("form", 1, 1);
-		cout << form << endl;
-		EXPECTED_EQ(form.getName(), "form");
-		EXPECTED_EQ(form.getGradeReqSign(), 1);
-		EXPECTED_EQ(form.getGradeReqExec(), 1);
+	cout << "Testing exercise number 2 of module cpp 05 " << endl;
+
+	cout << BLUE << "\nShrubbery Form tests : " << RESET << endl;
+	cout << endl;
+	cout << GREEN << "Tests in correct situation : \n" << endl;
+
+	TEST(1, "Creation shrubbery form with target home", {
+		ShrubberyCreationForm form("home");
+		EXPECTED_EQ(form.getName(), "ShrubberyCreationForm");
+		EXPECTED_EQ(form.getTarget(), "home");
+		EXPECTED_EQ(form.isSigned(), false);
+		EXPECTED_EQ(form.getGradeReqSign(), 145);
+		EXPECTED_EQ(form.getGradeReqExec(), 137);
 	});
 
-    cout << endl;
-
-	TEST("2", "Create Form with Too Low Sign-Grade", {
-		try {
-			Form form("form", 151, 1);
-		} catch (std::exception &e) {
-			EXPECTED_EQ(string(e.what()), "Grade too low or the bureaucrat how wanted to sign as a too low grade");
-		}
+	TEST(2, "Creation of Bureaucrat", {
+		Bureaucrat bureaucrat("bur", 150);
+		EXPECTED_EQ(bureaucrat.getName(), "bur") ;
+		EXPECTED_EQ(bureaucrat.getGrade(), 150);
 	});
 
-	TEST("3", "Create Form with Too High Sign-Grade", {
-		try {
-			Form form("form", 0, 1);
-		} catch (std::exception &e) {
-			EXPECTED_EQ(string(e.what()), "Grade too high");
-		}
-	});
-
-    cout << endl;
-
-	TEST("4", "Create Form with Too Low Execute-Grade", {
-		try {
-			Form form("form", 1, 151);
-		} catch (std::exception &e) {
-			EXPECTED_EQ(string(e.what()), "Grade too low or the bureaucrat how wanted to sign as a too low grade");
-		}
-	});
-
-    cout << endl;
-
-	TEST("5", "Create Form with Too High Execute-Grade", {
-		try {
-			Form form("form", 1, 0);
-		} catch (std::exception &e) {
-			EXPECTED_EQ(string(e.what()), "Grade too high");
-		}
-	});
-
-    cout << endl;
-
-	TEST("6", "Create Form with Correct information and Sign it", {
-		Form form("form", 1, 1);
-		Bureaucrat bureaucrat("bureaucrat", 1);
-		cout << form << "\n" << bureaucrat << endl;
-		form.beSigned(bureaucrat);
+	TEST(3, "Test sign a Form with grade of 145", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 145);
+		bureaucrat.signForm(form);
 		EXPECTED_EQ(form.isSigned(), true);
 	});
 
-    cout << endl;
-
-	TEST("7", "Create Form with Correct information and Sign it with Too Low Grade", {
-		Form form("form", 1, 1);
-		Bureaucrat bureaucrat("bureaucrat", 2);
-		cout << form << "\n" << bureaucrat << endl;
-		try {
-			form.beSigned(bureaucrat);
-		} catch (std::exception &e) {
-			EXPECTED_EQ(string(e.what()), "Grade too low or the bureaucrat how wanted to sign as a too low grade");
-		}
+	TEST(4, "Test sign a Form with grade of 137", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 137);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
 	});
 
-	cout << "----------------" << endl;
-	cout << BLUE << "End of Form tests" << RESET << endl;
+	TEST(5, "Test sign and execute a Form with grade of 137", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 137);
+		bureaucrat.signForm(form);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << RED << "Tests in incorrect situation : \n" << RESET << endl;
+	
+	TEST(6, "Test sign a Form with incorrect grade", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 150);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), false);
+	});
+
+	TEST(7, "Test can sign but cannot execute a Form (with grade 145)", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 145);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+		bureaucrat.executeForm(form);
+	});
+
+	TEST(8, "Test not sign but can execute a Form (with grade 137)", {
+		ShrubberyCreationForm form("home");
+		Bureaucrat bureaucrat("bur", 137);
+		EXPECTED_EQ(form.isSigned(), false);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << BLUE << "END Shrubbery Form tests\n" << RESET << endl;
+	cout << "----------------------------" << endl;
+	cout << BLUE << "\nRobotomy Form tests : \n" << RESET << endl;
+	cout << GREEN << "Tests in correct situation : \n" << endl;
+
+	TEST(1, "Creation Robotomy form with target home", {
+		RobotomyRequestForm form("home");
+		EXPECTED_EQ(form.getName(), "RobotomyRequestForm");
+		EXPECTED_EQ(form.getTarget(), "home");
+		EXPECTED_EQ(form.isSigned(), false);
+		EXPECTED_EQ(form.getGradeReqSign(), 72);
+		EXPECTED_EQ(form.getGradeReqExec(), 45);
+	});
+
+	TEST(2, "Creation of Bureaucrat", {
+		Bureaucrat bureaucrat("bur", 150);
+		EXPECTED_EQ(bureaucrat.getName(), "bur") ;
+		EXPECTED_EQ(bureaucrat.getGrade(), 150);
+	});
+
+	TEST(3, "Test sign a Form with grade of 72", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 72);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+	});
+
+	TEST(4, "Test sign a Form with grade of 45", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 45);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+	});
+
+	TEST(5, "Test sign and execute a Form with grade of 45", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 45);
+		bureaucrat.signForm(form);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << RED << "Tests in incorrect situation : \n" << RESET << endl;
+	
+	TEST(6, "Test sign a Form with incorrect grade", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 150);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), false);
+	});
+
+	TEST(7, "Test can sign but cannot execute a Form (with grade 72)", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 72);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+		bureaucrat.executeForm(form);
+	});
+
+	TEST(8, "Test not sign but can execute a Form (with grade 45)", {
+		RobotomyRequestForm form("home");
+		Bureaucrat bureaucrat("bur", 45);
+		EXPECTED_EQ(form.isSigned(), false);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << BLUE << "END Robotomy Form tests\n" << RESET << endl;
+	cout << "----------------------------" << endl;
+	cout << BLUE << "\nPresidential Form tests : \n" << RESET << endl;
+	cout << GREEN << "Tests in correct situation : \n" << endl;
+
+	TEST(1, "Creation Presidential form with target home", {
+		PresidentialPardonForm form("home");
+		EXPECTED_EQ(form.getName(), "PresidentialPardonForm");
+		EXPECTED_EQ(form.getTarget(), "home");
+		EXPECTED_EQ(form.isSigned(), false);
+		EXPECTED_EQ(form.getGradeReqSign(), 25);
+		EXPECTED_EQ(form.getGradeReqExec(), 5);
+	});
+
+	TEST(2, "Creation of Bureaucrat", {
+		Bureaucrat bureaucrat("bur", 150);
+		EXPECTED_EQ(bureaucrat.getName(), "bur") ;
+		EXPECTED_EQ(bureaucrat.getGrade(), 150);
+	});
+
+	TEST(3, "Test sign a Form with grade of 25", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 25);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+	});
+
+	TEST(4, "Test sign a Form with grade of 5", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 5);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+	});
+
+	TEST(5, "Test sign and execute a Form with grade of 5", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 5);
+		bureaucrat.signForm(form);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << RED << "Tests in incorrect situation : \n" << RESET << endl;
+	
+	TEST(6, "Test sign a Form with incorrect grade", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 150);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), false);
+	});
+
+	TEST(7, "Test can sign but cannot execute a Form (with grade 25)", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 25);
+		bureaucrat.signForm(form);
+		EXPECTED_EQ(form.isSigned(), true);
+		bureaucrat.executeForm(form);
+	});
+
+	TEST(8, "Test not sign but can execute a Form (with grade 5)", {
+		PresidentialPardonForm form("home");
+		Bureaucrat bureaucrat("bur", 5);
+		EXPECTED_EQ(form.isSigned(), false);
+		bureaucrat.executeForm(form);
+	});
+
+	cout << endl;
+	cout << BLUE << "END Presidential Form tests" << endl;
 
     return 0;
 }
