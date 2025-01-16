@@ -6,7 +6,7 @@
 /*   By: sayfallahgabsi <sayfallahgabsi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:46:58 by sayfallahga       #+#    #+#             */
-/*   Updated: 2025/01/14 14:08:59 by sayfallahga      ###   ########.fr       */
+/*   Updated: 2025/01/16 13:36:31 by sayfallahga      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 typedef struct s_Data {
 	std::string name;

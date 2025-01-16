@@ -6,7 +6,7 @@
 #    By: sayfallahgabsi <sayfallahgabsi@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2025/01/16 14:11:43 by sayfallahga      ###   ########.fr        #
+#    Updated: 2025/01/16 14:11:50 by sayfallahga      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	main.cpp
+SRCLIST				=	main.cpp \
+						Base.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	name
+NAME				=	identify
 
 # Compiler
 CPP					=	c++
