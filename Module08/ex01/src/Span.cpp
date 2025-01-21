@@ -6,12 +6,13 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:03:48 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/21 18:18:41 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/21 18:42:00 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <algorithm>
 #include <limits>
+#include <exception>
 
 #include "Span.hpp"
 
@@ -43,6 +44,14 @@ void Span::addNumber( int nbr ) {
 		throw std::out_of_range("Span is overloaded");
 	}
 	_v.push_back(nbr);
+}
+
+void Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end ) {
+	if ((_v.size() + std::distance(begin, end)) > _n)
+	{
+		throw std::out_of_range("Span is overloaded");
+	}
+	_v.insert(_v.end(), begin, end);
 }
 
 int Span::shortestSpan() const {

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:56:11 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/21 18:16:51 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/21 18:36:08 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 
 	/* Member functions */
 	void addNumber( int );
+	void addNumber( std::vector<int>::iterator begin, std::vector<int>::iterator end );
 	int shortestSpan( void ) const ;
 	int longestSpan( void ) const ;
 };

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:13:25 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/21 18:32:59 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/21 18:42:18 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,40 +49,48 @@ int main( void )
 
 	TEST("100 nums", {
 		Span sp = Span(100);
+		std::vector<int> v(100);
 		for (size_t i = 0; i < 100; i++)
 		{
-			sp.addNumber(i);
+			v[i] = i;
 		}
+		sp.addNumber(v.begin(), v.end());
 		EXPECTED_EQ(sp.shortestSpan(), 1);
 		EXPECTED_EQ(sp.longestSpan(), 99);
 	});
 
 	TEST("10000 nums", {
 		Span sp = Span(10000);
+		std::vector<int> v(10000);
 		for (size_t i = 0; i < 10000; i++)
 		{
-			sp.addNumber(i);
+			v[i] = i;
 		}
+		sp.addNumber(v.begin(), v.end());
 		EXPECTED_EQ(sp.shortestSpan(), 1);
 		EXPECTED_EQ(sp.longestSpan(), 9999);
 	});
 
 	TEST("100000 nums", {
 		Span sp = Span(100000);
+		std::vector<int> v(100000);
 		for (size_t i = 0; i < 100000; i++)
 		{
-			sp.addNumber(i);
+			v[i] = i;
 		}
+		sp.addNumber(v.begin(), v.end());
 		EXPECTED_EQ(sp.shortestSpan(), 1);
 		EXPECTED_EQ(sp.longestSpan(), 99999);
 	});
 
 	TEST("short == long", {
 		Span sp = Span(100);
+		std::vector<int> v(100);
 		for (size_t i = 0; i < 100; i++)
 		{
-			sp.addNumber(42);
+			v[i] = 42;
 		}
+		sp.addNumber(v.begin(), v.end());
 		EXPECTED_EQ(sp.shortestSpan(), 0);
 		EXPECTED_EQ(sp.longestSpan(), 0);
 	});
