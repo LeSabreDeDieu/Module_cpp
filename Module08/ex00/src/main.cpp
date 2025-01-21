@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:11:24 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/21 17:47:33 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/21 18:26:05 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
 #define RESET "\033[0m"
 
 // Macro pour tester si la valeur existe dans le conteneur
