@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sayfallahgabsi <sayfallahgabsi@student.    +#+  +:+       +#+         #
+#    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2025/01/16 14:11:43 by sayfallahga      ###   ########.fr        #
+#    Updated: 2025/01/24 18:06:09 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	main.cpp
+SRCLIST				=	main.cpp \
+						RPN.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	name
+NAME				=	rpn
 
 # Compiler
 CPP					=	c++
