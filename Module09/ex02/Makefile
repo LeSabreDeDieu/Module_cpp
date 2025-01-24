@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2025/01/24 18:27:14 by sgabsi           ###   ########.fr        #
+#    Updated: 2025/01/24 18:53:34 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,14 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	main.cpp \
-						RPN.cpp
+SRCLIST				=	main.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
 OBJ					=	$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Output
-NAME				=	RPN
+NAME				=	PmergeMe
 
 # Compiler
 CPP					=	c++
