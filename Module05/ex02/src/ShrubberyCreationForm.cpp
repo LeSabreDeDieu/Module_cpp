@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:59:24 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/09 14:57:08 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/01/22 11:18:42 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void ShrubberyCreationForm::execute (Bureaucrat const & bureaucrat) const {
     outfile << "                          ;%@@@@%%:;;;. " << endl;
     outfile << "                      ...;%@@@@@%%:;;;;,..    " << endl;
     outfile << endl;
+    outfile.close();
 }
