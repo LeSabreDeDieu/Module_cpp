@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/20 10:50:58 by sgabsi            #+#    #+#              #
-#    Updated: 2025/01/24 18:53:34 by sgabsi           ###   ########.fr        #
+#    Updated: 2025/02/04 09:18:12 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCDIR				=	./src
 OBJDIR				=	objs
 
 # Sources
-SRCLIST				=	main.cpp
+SRCLIST				=	main.cpp \
+						PmergeMe.cpp
 SRCS				=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 
 # Objects
