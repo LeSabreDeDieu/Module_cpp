@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 09:40:54 by sgabsi            #+#    #+#             */
-/*   Updated: 2025/01/09 15:35:21 by sgabsi           ###   ########.fr       */
+/*   Updated: 2025/02/04 11:26:48 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,7 +237,7 @@ int main( void ) {
 	});
 
 	cout << endl;
-	cout << BLUE << "END Presidential Form tests" << endl;
+	cout << BLUE << "END Presidential Form tests" << RESET << endl;
 
     return 0;
 }
