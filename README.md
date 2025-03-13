@@ -19,7 +19,9 @@
 
 ---
 <p>
-	Score projects :<br>
+	Score projects :
+</p>
+<p align="center">
 	<div align="center>
 		<img src="https://img.shields.io/badge/Module00-100-green?style=none&logo=42" alt="Module00 : 100"/><br>
 		<img src="https://img.shields.io/badge/Module01-85-green?style=none&logo=42" alt="Module01 : 85"/><br>
